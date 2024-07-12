@@ -1,9 +1,6 @@
 name: flutter_shop
 description: "A new Flutter project."
-
 publish_to: 'none'
-
-
 version: 1.0.0+1
 
 environment:
@@ -23,19 +20,16 @@ dev_dependencies:
 
 
 flutter:
-
-
   uses-material-design: true
-
-ation, add an assets section, like this:
   assets:
     - assets/images/
-
-
-
+    # - assets/images/shoes_1.png
+    # - assets/images/shoes_2.png
+    # - assets/images/shoes_3.png
+    # - assets/images/shoes_4.png
   fonts:
     - family: Lato
       fonts:
-        - asset: assest/fonts/Lator-Light.ttf
-        - asset: assest/fonts/Lator-Bold.ttf
+        - asset: assets/fonts/Lato-Light.ttf
+        - asset: assets/fonts/Lato-Bold.ttf
           weight: 700

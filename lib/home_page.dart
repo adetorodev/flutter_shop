@@ -1,9 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_shop/global_variable.dart';
+import 'package:flutter_shop/productCard.dart';
+import 'package:flutter_shop/product_detail_page.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
-  final List<String> filters = const ['All', 'Addidas', 'Nike', 'Bata'];
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final List<String> filters = const [
+    'All',
+    'Restuarant',
+    'Pharmacy',
+    'Service',
+    'Supermarket',
+    'Store'
+  ];
+  late String selectedFilter = filters[0];
+
+  @override
+  void initState() {
+    super.initState();
+    selectedFilter = filters[0];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +37,7 @@ class HomePage extends StatelessWidget {
         left: Radius.circular(50),
       ),
     );
-    return const Scaffold(
+    return Scaffold(
         body: SafeArea(
       top: true,
       child: Column(
@@ -23,19 +45,16 @@ class HomePage extends StatelessWidget {
           Row(
             children: [
               Padding(
-                padding: EdgeInsets.all(20.0),
+                padding: const EdgeInsets.all(20.0),
                 child: Text(
-                  'Shoe\nCollection',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 35,
-                  ),
+                  'MyShop\nCollection',
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
               ),
-              Expanded(
+              const Expanded(
                 child: TextField(
                   decoration: InputDecoration(
-                    hintText: "Search",
+                    hintText: "What do you need?",
                     prefix: Icon(
                       Icons.search,
                     ),
@@ -45,6 +64,69 @@ class HomePage extends StatelessWidget {
                 ),
               ),
             ],
+          ),
+          SizedBox(
+            height: 120,
+            child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: filters.length,
+                itemBuilder: (context, index) {
+                  final filter = filters[index];
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          selectedFilter = filter;
+                        });
+                      },
+                      child: Chip(
+                        backgroundColor: selectedFilter == filter
+                            ? Theme.of(context).colorScheme.primary
+                            : const Color.fromARGB(
+                                255,
+                                249,
+                                245,
+                                245,
+                              ),
+                        side: const BorderSide(
+                            color: Color.fromRGBO(245, 247, 249, 1)),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 15, vertical: 20),
+                        label: Text(filter),
+                        labelStyle: const TextStyle(fontSize: 16),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30)),
+                      ),
+                    ),
+                  );
+                }),
+          ),
+          Expanded(
+            child: ListView.builder(
+                itemCount: products.length,
+                itemBuilder: (context, index) {
+                  final product = products[index];
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return ProductDetailPage(product: product);
+                          },
+                        ),
+                      );
+                    },
+                    child: ProductCard(
+                      title: product['title'] as String,
+                      price: product['price'] as double,
+                      image: product['imageUrl'] as String,
+                      backgroundColor: index.isEven
+                          ? const Color.fromRGBO(216, 240, 253, 1)
+                          : const Color.fromRGBO(245, 247, 249, 1),
+                    ),
+                  );
+                }),
           ),
         ],
       ),
