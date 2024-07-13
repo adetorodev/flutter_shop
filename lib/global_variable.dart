@@ -31,14 +31,14 @@ final products = [
     'company': 'Supermarket',
     'sizes': [8, 9, 10],
   },
-  // {
-  //   'id': '4',
-  //   'title': 'Jordan Shoes',
-  //   'price': 420.69,
-  //   'imageUrl': 'assets/images/shoes_4.png',
-  //   'company': 'store',
-  //   'sizes': [8, 9, 10],
-  // },
+  {
+    'id': '4',
+    'title': 'Jordan Shoes',
+    'price': 420.69,
+    'imageUrl': 'assets/images/shoes_4.png',
+    'company': 'store',
+    'sizes': [8, 9, 10],
+  },
 ];
 
 final cart = [
@@ -49,5 +49,21 @@ final cart = [
     'imageUrl': 'assets/images/shoes_3.png',
     'company': 'Services',
     'sizes': 9,
+  },
+  {
+    'id': '4',
+    'title': 'Jordan Shoes',
+    'price': 420.69,
+    'imageUrl': 'assets/images/shoes_4.png',
+    'company': 'store',
+    'sizes': 8,
+  },
+  {
+    'id': '4',
+    'title': 'Jordan Shoes',
+    'price': 420.69,
+    'imageUrl': 'assets/images/shoes_4.png',
+    'company': 'store',
+    'sizes': 10,
   },
 ];

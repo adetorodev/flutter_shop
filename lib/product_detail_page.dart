@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_shop/cart_provider.dart';
+import 'package:provider/provider.dart';
 
 class ProductDetailPage extends StatefulWidget {
   final Map<String, Object> product;
@@ -84,9 +86,12 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                       }),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.all(18.0),
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Provider.of<CartProvider>(context, listen: false)
+                          .addProduct(widget.product);
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Theme.of(context).colorScheme.primary,
                       minimumSize: const Size(double.infinity, 50),
