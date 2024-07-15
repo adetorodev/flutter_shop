@@ -41,29 +41,29 @@ final products = [
   },
 ];
 
-final cart = [
-  {
-    'id': '2',
-    'title': 'Bata Women\'s Shoes',
-    'price': 28.95,
-    'imageUrl': 'assets/images/shoes_3.png',
-    'company': 'Services',
-    'sizes': 9,
-  },
-  {
-    'id': '4',
-    'title': 'Jordan Shoes',
-    'price': 420.69,
-    'imageUrl': 'assets/images/shoes_4.png',
-    'company': 'store',
-    'sizes': 8,
-  },
-  {
-    'id': '4',
-    'title': 'Jordan Shoes',
-    'price': 420.69,
-    'imageUrl': 'assets/images/shoes_4.png',
-    'company': 'store',
-    'sizes': 10,
-  },
-];
+// final cart = [
+//   {
+//     'id': '2',
+//     'title': 'Bata Women\'s Shoes',
+//     'price': 28.95,
+//     'imageUrl': 'assets/images/shoes_3.png',
+//     'company': 'Services',
+//     'sizes': 9,
+//   },
+//   {
+//     'id': '4',
+//     'title': 'Jordan Shoes',
+//     'price': 420.69,
+//     'imageUrl': 'assets/images/shoes_4.png',
+//     'company': 'store',
+//     'sizes': 8,
+//   },
+//   {
+//     'id': '4',
+//     'title': 'Jordan Shoes',
+//     'price': 420.69,
+//     'imageUrl': 'assets/images/shoes_4.png',
+//     'company': 'store',
+//     'sizes': 10,
+//   },
+// ];
